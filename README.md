@@ -23,6 +23,19 @@ $ python -m venv venv
 $ source venv/bin/activate
 ```
 
+### pipenv インストール
+
+```
+$ python -m pip install --upgrade pip
+$ pip install pipenv
+```
+
+### pytest install
+
+```
+$ pipenv install -d pytest
+```
+
 ## Python for VS Code
 
 ### VS Code の拡張機能をインストールする
