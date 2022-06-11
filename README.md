@@ -30,6 +30,12 @@ $ python -m pip install --upgrade pip
 $ pip install pipenv
 ```
 
+### flake8 インストール
+
+```
+$ pip install flake8
+```
+
 ### pytest install
 
 ```
@@ -54,3 +60,5 @@ Python関連
 
 整形系
 * Python Indent
+* flake8設定  
+  設定の python.linting.flake8Enabled にチェックを入れる。
