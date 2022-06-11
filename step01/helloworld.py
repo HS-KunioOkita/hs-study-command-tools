@@ -12,4 +12,3 @@ print(object_sample)
 # sys.stdout.write(object_sample)
 sys.stdout.write(str(object_sample))
 sys.stdout.write("\n")
-
