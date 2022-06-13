@@ -2,6 +2,7 @@ import sys
 from datetime import datetime, timedelta, timezone
 import traceback
 
+DATE_FORMAT = '%Y-%m-%dT%H:%M:%S%z'
 
 def main():
     """メイン処理
@@ -22,7 +23,7 @@ def main():
     date = unix2datetime(unixtime)
 
     # 結果を標準出力
-    print(date.strftime('%Y-%m-%dT%H:%M:%S%z'))
+    print(date.strftime(DATE_FORMAT))
 
 
 def get_unixtime(argv):
