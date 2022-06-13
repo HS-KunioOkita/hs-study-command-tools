@@ -18,6 +18,7 @@ $ pyenv install 3.10.4
 
 ```
 $ mkdir /path/to/workdir
+$ cd /path/to/workdir
 $ pyenv local 3.10.4
 $ python -m venv venv
 $ source venv/bin/activate
@@ -33,10 +34,10 @@ $ pip install pipenv
 ### flake8 インストール
 
 ```
-$ pip install flake8
+$ pipenv install -d flake8
 ```
 
-### pytest install
+### pytest インストール
 
 ```
 $ pipenv install -d pytest
