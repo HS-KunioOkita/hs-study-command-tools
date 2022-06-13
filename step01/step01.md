@@ -3,11 +3,10 @@
 ## 資料を git clone で持ってくる
 https://github.com/HS-KunioOkita/hs-study-command-tools.git
 
-
 ## 自分のリポジトリをGithubに作成する
 
 * なければ、Githubアカウントを作成する
-* あれば、リポジトリを作成しローカルに gitclone してくる。
+* あれば、リポジトリを作成しローカルに git clone してくる。
 
 ## README.md の内容を参考に python 開発環境を構築する
 

@@ -14,10 +14,22 @@ $ pyenv install 3.10.4
 ※ pyenvでインストールする前提としてXcodeをインストールしておく必要がある。  
 → pythonをビルドするため。
 
+```
+$ vi ~/.zshrc
+--- 以下を記載
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+---
+$ source ~/.zshrc
+```
+
+
 ### pyvenv 設定
 
 ```
-$ mkdir /path/to/workdir
+$ mkdir /path/to/workdir or git clone https://xxx(自分で作成したGitリポジトリ)
 $ cd /path/to/workdir
 $ pyenv local 3.10.4
 $ python -m venv venv
