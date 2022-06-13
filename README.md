@@ -15,14 +15,14 @@ $ pyenv install 3.10.4
 → pythonをビルドするため。
 
 ```
-$ vi ~/.zshrc
+$ vi ~/.zshrc or ~/.bashrc
 --- 以下を記載
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 ---
-$ source ~/.zshrc
+$ source ~/.zshrc or ~/.bashrc
 ```
 
 
