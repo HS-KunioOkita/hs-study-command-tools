@@ -63,3 +63,7 @@ Python関連
 * Python Indent
 * flake8設定  
   設定の python.linting.flake8Enabled にチェックを入れる。
+
+その他
+* Markdown All in One
+* Markdown PDF
