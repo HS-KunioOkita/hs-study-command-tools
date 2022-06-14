@@ -81,3 +81,7 @@ Python関連
 その他
 * Markdown All in One
 * Markdown PDF
+
+# Python関連ドキュメント
+
+* 公式ドキュメント：https://docs.python.org/ja/3/index.html
