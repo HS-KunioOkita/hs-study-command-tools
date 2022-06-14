@@ -2,18 +2,12 @@
 
 ### pyenv install
 
+pyenv インストール
 ```
 $ brew install pyenv
 ```
 
-### python install
-
-```
-$ pyenv install 3.10.4
-```
-※ pyenvでインストールする前提としてXcodeをインストールしておく必要がある。  
-→ pythonをビルドするため。
-
+環境変数の設定
 ```
 $ vi ~/.zshrc or ~/.bashrc
 --- 以下を記載
@@ -24,6 +18,14 @@ eval "$(pyenv init -)"
 ---
 $ source ~/.zshrc or ~/.bashrc
 ```
+
+### python install
+
+```
+$ pyenv install 3.10.4
+```
+※ pyenvでインストールする前提としてXcodeをインストールしておく必要がある。  
+→ pythonをビルドするため。
 
 
 ### pyvenv 設定
