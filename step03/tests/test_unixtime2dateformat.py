@@ -1,4 +1,5 @@
 import pytest
+import sys
 
 from datetime import datetime, timezone, timedelta
 from src.unixtime2dateformat import main, unix2datetime, get_unixtime
@@ -38,3 +39,21 @@ def test_get_unixtime_valueerror(capfd):
 def test_unix2datetime():
     assert unix2datetime(1) == datetime(1970, 1, 1, 9, 0, 1, tzinfo=timezone(timedelta(seconds=32400), 'JST'))
 
+
+# 正常系確認
+def test_main(capfd, mocker):
+    test_argments = ['', '100']
+    mocker.patch('sys.argv', return_value=test_argments)
+    main()
+    out, err = capfd.readouterr()
+    assert out == '1970-01-01T09:00:01+0900\n'
+    assert err == ''
+
+# 不正な値確認
+def test_main_invalid_argment(capfd, mocker):
+    test_argments = ['', 'a']
+    mocker.patch('sys.argv', return_value=test_argments)
+    main()
+    out, err = capfd.readouterr()
+    #assert out.startswith("引数の型が不正です。value = a") == True
+    #assert err == ''
