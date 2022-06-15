@@ -51,10 +51,12 @@ $ pip install pipenv
 $ pipenv install -d flake8
 ```
 
-### pytest インストール
+### pytest, pytest-cov, pytest-mock インストール
 
 ```
 $ pipenv install -d pytest
+$ pipenv install -d pytest-mock
+$ pipenv install -d pytest-cov
 ```
 
 ## Python for VS Code
