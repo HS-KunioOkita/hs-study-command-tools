@@ -1,13 +1,13 @@
 import pytest
 import sys
+from unittest.mock import patch
 
 from datetime import datetime, timezone, timedelta
 from src.unixtime2dateformat import main, unix2datetime, get_unixtime
 
 
-
 # 正常系を含む境界値試験
-@pytest.mark.parametrize(('argv', 'expected'),[
+@pytest.mark.parametrize(('argv', 'expected'), [
     (['', '-100'], -1),
     (['', '-1'], -1),
     (['', '0'], 0),
@@ -17,14 +17,16 @@ from src.unixtime2dateformat import main, unix2datetime, get_unixtime
 def test_get_unixtime(argv, expected):
     assert get_unixtime(argv) == expected
 
+
 # 引数に指定されていない場合、-1が返却される
 def test_get_unixtime_indexerror(capfd):
     # 戻り値チェック
     assert get_unixtime(['']) == -1
     # 標準出力内容チェック
     out, err = capfd.readouterr()
-    assert out.startswith("引数を指定してください。value = ['']") == True
+    assert out.startswith("引数を指定してください。value = ['']") is True
     assert err == ''
+
 
 # 引数に数値以外が指定された場合、-1が返却される
 def test_get_unixtime_valueerror(capfd):
@@ -32,8 +34,9 @@ def test_get_unixtime_valueerror(capfd):
     assert get_unixtime(['', 'abc']) == -1
     # 標準出力内容チェック
     out, err = capfd.readouterr()
-    assert out.startswith("引数の型が不正です。value = abc") == True
+    assert out.startswith("引数の型が不正です。value = abc") is True
     assert err == ''
+
 
 # 正常系確認
 def test_unix2datetime():
@@ -41,19 +44,20 @@ def test_unix2datetime():
 
 
 # 正常系確認
-def test_main(capfd, mocker):
-    test_argments = ['', '100']
-    mocker.patch('sys.argv', return_value=test_argments)
-    main()
-    out, err = capfd.readouterr()
-    assert out == '1970-01-01T09:00:01+0900\n'
-    assert err == ''
+def test_main(capfd):
+    test_argments = ['', '1']
+    with patch.object(sys, 'argv', test_argments):
+        main()
+        out, err = capfd.readouterr()
+        assert out == '1970-01-01T09:00:01+0900\n'
+        assert err == ''
+
 
 # 不正な値確認
-def test_main_invalid_argment(capfd, mocker):
+def test_main_invalid_argment(capfd):
     test_argments = ['', 'a']
-    mocker.patch('sys.argv', return_value=test_argments)
-    main()
-    out, err = capfd.readouterr()
-    #assert out.startswith("引数の型が不正です。value = a") == True
-    #assert err == ''
+    with patch.object(sys, 'argv', test_argments):
+        main()
+        out, err = capfd.readouterr()
+        assert out.startswith("引数の型が不正です。value = a") is True
+        assert err == ''

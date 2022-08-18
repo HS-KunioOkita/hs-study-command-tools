@@ -17,7 +17,7 @@ def main():
     # 引数から値を取得
     unixtime = get_unixtime(sys.argv)
     if unixtime < 0:
-        sys.exit(1)
+        return
 
     # 変換
     date = unix2datetime(unixtime)
